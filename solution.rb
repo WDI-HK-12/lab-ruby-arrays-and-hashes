@@ -13,24 +13,24 @@ def add_student first_name, last_name, course_name
     last_name: last_name,
     course_name: course_name
   }
-  students << student
+  @students << student
 end
 
 #A third method should read back our list of students we've created in a specific format, sorted by last name
 def list_students
-  students.sort_by { |student| student[:last_name] }.each do |student|
+  @students.sort_by { |student| student[:last_name] }.each do |student|
     puts "#{student[:last_name]}, #{student[:first_name]} - #{student[:course_name]}"
   end
 end
 
 #A fourth method should display a message about how many students are in the class
 def count_students
-  puts "We have #{students.length} in our course"
+  puts "We have #{@students.length} in our course"
 end
 
 #And a final method should tell us what information any given student hash has in it.
 def student_details
-  students.first.keys.each do |attribute|
+  @students.first.keys.each do |attribute|
     puts "- #{attribute}"
   end
 end
